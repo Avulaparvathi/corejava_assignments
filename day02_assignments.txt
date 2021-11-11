@@ -1,0 +1,200 @@
+classes assignment:
+1.Create student class having stdID , stdName, stdClass and display the information of two objects 
+package com.sonata;
+
+public class Student {
+	int stdId;
+	String stdName;
+	int stdClass;
+	public void display() {
+		System.out.println(stdId);
+		System.out.println(stdName);
+		System.out.println(stdClass);
+		}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student s1 = new Student();
+		s1.stdId=1;
+		s1.stdName="paru";
+		s1.stdClass=9;
+		s1.display();
+		Student s2 = new Student();
+		s2.stdId=2;
+		s2.stdName="navya";
+		s2.stdClass=6;
+		s2.display();
+
+	}
+
+}
+
+2.Create a product class The properties are ProID, ProName, ProPrice display the information and ProPrice will be added additional tax of GST . 
+package com.sonata;
+
+public class Product {
+	int ProID;
+	String ProName;
+	double ProPrice;
+	public void tax(double t) {
+		this.ProPrice=this.ProPrice+t;
+		System.out.println("the proprice with tax is"+ProPrice);
+	}
+	public void display() {
+		System.out.println(ProID);
+		System.out.println(ProName);
+		System.out.println("the proprice without tax is"+ProPrice);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Product p1 = new Product();
+		p1.ProID=23;
+		p1.ProName="watch";
+		p1.ProPrice=2356.90;
+		p1.display();
+		p1.tax(50);
+		
+
+	}
+
+}
+
+3.Create a T-Shirt  class with the following fields. 
+
+String color 
+
+String material 
+
+String design 
+
+Create three instances of object based on different sizes like small, large ,  xtra-large. 
+package com.sonata;
+
+public class T_shirt {
+	String color; 
+	String material; 
+	String design;
+	T_shirt(String size){
+		System.out.println("the size of tshirt is "+size);
+	}
+	public void display() {
+		System.out.println("the colour of tshirt is "+color);
+		System.out.println("the material of tshirt is "+material);
+		System.out.println("the design is "+design);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		T_shirt t1 = new T_shirt("small");
+		t1.color="white";
+		t1.material="cotton";
+		t1.design="dots";
+		t1.display();
+		T_shirt t2 = new T_shirt("large");
+		t2.color="red";
+		t2.material="polyester";
+		t2.design="lines";
+		t2.display();
+		T_shirt t3 = new T_shirt("extra large");
+		t3.color="black";
+		t3.material="cotton & polyester";
+		t3.design="checks";
+		t3.display();
+
+	}
+
+}
+
+inheritance assignments:
+1.create a super class of car
+package com.sonata;
+
+public class Car {
+	int speed; 
+	double regularPrice; 
+	String color; 
+	public Car(int speed, double regularPrice, String color) {
+		 this.speed = speed;
+		 this.regularPrice = regularPrice;
+		 this.color = color;
+		 }
+
+		 public double getSalePrice() {
+		 return regularPrice;
+		 }
+
+}
+
+2.create subclass of car having class name truck
+package com.sonata;
+
+public class Truck extends Car{
+	int weight;
+	public Truck(int speed, double regularPrice, String color, int weight) {
+		 super(speed, regularPrice, color);
+		 this.weight = weight;
+		 }
+
+		 public double getSalePrice() {
+		 return super.getSalePrice() * (weight > 2000 ? 0.90 : 0.80);
+		 }
+	
+
+}
+
+3.create a subclass of car having class name ford
+package com.sonata;
+
+public class Ford extends Car {
+	int year; 
+	int manufacturerDiscount; 
+
+	 public Ford(int speed, double regularPrice, String color, int year, int manufacturerDiscount) {
+	 super(speed, regularPrice, color);
+	 this.year = year;
+	 this.manufacturerDiscount = manufacturerDiscount;
+	 }
+
+	 public double getSalePrice() {
+	 return super.getSalePrice() - manufacturerDiscount;
+	 }
+
+}
+
+4.create a subclass of car having class name sedan
+package com.sonata;
+
+public class Sedan extends Car{
+	int length;
+	public Sedan(int speed, double regularPrice, String color, int length) {
+		 super(speed, regularPrice, color);
+		 this.length = length;
+		 }
+
+		 public double getSalePrice() {
+		 return super.getSalePrice() * (length < 20 ? 0.95 : 0.90);
+		 }
+}
+
+5.create a class of name MyOwnAutoShop
+package com.sonata;
+
+public class MyOwnAutoShop {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			 Sedan s= new Sedan(500, 500, "red", 30);
+			 Ford f1 = new Ford(300, 300, "black", 2021, 35);
+			 Ford f2 = new Ford(250, 250, "yellow", 2020, 40);
+			 Car c = new Car(100, 100, "white");
+			 System.out.println("sedan salesprice is"+s.getSalePrice());
+			 System.out.println("black colours Ford salesprice is "+f1.getSalePrice());
+			 System.out.println("Yellow colour ford salesprice is "+f2.getSalePrice());
+			 System.out.println("car "+c.getSalePrice());
+			
+
+	}
+
+}
